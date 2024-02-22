@@ -35,10 +35,10 @@ function App() {
     if (loggedIn) {
       api.getUserInfo()
       .then((result) => {
-        setCurrentUser(result)
+        setCurrentUser(result.data)
         api.getInitialCards()
               .then((result) => {
-                  const cardsArr = result.map((item) => {
+                  const cardsArr = result.data.map((item) => {
                       return {
                           name: item["name"],
                           link: item["link"],
@@ -60,7 +60,7 @@ function App() {
 
 
   function signOut(){
-    localStorage.removeItem('jwt');
+    document.cookie = 'jwt=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     navigate("/sign-in", {replace: true});
   }
   
@@ -146,12 +146,13 @@ function App() {
   function handleAddPlaceSubmit(newCard) {
     api.addCard(newCard)
     .then((res) =>{
+      console.log(res)
       setCards([{
-        name: res["name"],
-        link: res["link"],
-        likes: res["likes"],
-        ownerId: res["owner"]._id,
-        _id: res["_id"]
+        name: res.data["name"],
+        link: res.data["link"],
+        likes: res.data["likes"],
+        ownerId: res.data["owner"]._id,
+        _id: res.data["_id"]
     }, ...cards]);
     closeAllPopups();
     })
@@ -162,9 +163,9 @@ function App() {
 
   const handleTokenCheck = () => {
     auth.checkToken().then((res) => {
-      console.log(res)
-      if (res.ok){
-        // setUserEmail(res.data.email)
+      if (res){
+        setCurrentUser(res)
+        setUserEmail(res.data.email)
         setLoggedIn(true);
         navigate("/", {replace: true});
       }
