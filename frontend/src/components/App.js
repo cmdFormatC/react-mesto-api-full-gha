@@ -39,7 +39,6 @@ function App() {
         api.getInitialCards()
               .then((result) => {
                   const cardsArr = result.data.map((item) => {
-                    console.log(item)
                       return {
                           name: item["name"],
                           link: item["link"],
@@ -100,9 +99,12 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
+    console.log(card._id);
+    console.log(isLiked);
     api.togglelike(card._id, !isLiked)
     .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
+      console.log(newCard)
+      setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
     })
     .catch((error) => {
       console.error(error); 

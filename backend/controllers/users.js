@@ -59,7 +59,7 @@ const login = async (req, res, next) => {
 
 const logOut = async (req, res, next) => {
   try {
-    res.clearCookie('session_token');
+    res.clearCookie('jwt');
     res.send('Вы вышли из системы');
   } catch (err) {
     return next(err);
