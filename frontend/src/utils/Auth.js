@@ -3,6 +3,7 @@ export const BASE_URL = 'https://api.vtelegram.nomoredomainswork.ru';
 export const register = (password, email) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -22,14 +23,13 @@ export const register = (password, email) => {
 export const authorize = (password, email) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({password, email})
   })
-  .then((response => {
-    console.log(response)
-    return response.json()}))
+  .then((response => response))
   .catch(err => console.log(err))
 };
 export const checkToken = () => {

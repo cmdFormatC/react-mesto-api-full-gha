@@ -11,12 +11,14 @@ class Api {
     }
     getUserInfo () {
         return fetch(`${this._baseUrl}/users/me`, {
+            credentials: 'include',
             headers: this._headers
         })
         .then(this._checkResponse)
     }
     getInitialCards() {
         return fetch(`${this._baseUrl}/cards`, {
+            credentials: 'include',
             headers: this._headers
         })
         .then(this._checkResponse)
@@ -24,6 +26,7 @@ class Api {
     editProfile(inputValues) {
         return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify({
               name: `${inputValues.name}`,
@@ -47,6 +50,7 @@ class Api {
     deleteCard(cardId) {
         return fetch(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: this._headers
         })
         .then(this._checkResponse)
@@ -55,12 +59,14 @@ class Api {
         if (isLiked) {
             return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'PUT',
-            headers: this._headers
+            credentials: 'include',
+            headers: this._headers,
             })
             .then(this._checkResponse)
         } else {
             return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: this._headers
             })
             .then(this._checkResponse)
@@ -69,6 +75,7 @@ class Api {
     updateAvatar(url) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify(url),
         })
