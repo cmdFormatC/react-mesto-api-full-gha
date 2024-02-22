@@ -1,0 +1,10 @@
+.header__desktop-view {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+ }
+ @media screen and (max-width: 767px) { 
+     .header__desktop-view { 
+         display: none;
+     } 
+ }

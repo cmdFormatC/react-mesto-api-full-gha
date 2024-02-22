@@ -1,0 +1,18 @@
+.authentication-form__singin-text {
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 15px 0 0 0;
+}
+
+@media screen and (max-width: 767px) { 
+    .authentication-form__singin-text { 
+        width: 81.25vw;
+        height: 8.4375vw;
+        font-size: 4.375vw;
+        margin: 12.5vw 0 0 0;
+    } 
+}

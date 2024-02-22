@@ -1,0 +1,18 @@
+.popup__alert {
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    max-width: 358px;
+    margin: 32px 36px 60px 36px;
+}
+
+@media screen and (max-width: 767px) { 
+    .popup__alert { 
+        max-width: 76.25vw;
+        font-size: 6.25vw;
+        margin: 12.5vw 5.625vw 15.625vw 5.625vw;
+    } 
+}

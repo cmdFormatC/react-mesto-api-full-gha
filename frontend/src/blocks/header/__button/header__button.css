@@ -1,0 +1,21 @@
+.header__button {
+    cursor: pointer;
+    border: none;
+    background-color: #000;
+    color: #A9A9A9;
+    text-align: right;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 6px 0 0 24px;
+    padding: 0;
+}
+
+@media screen and (max-width: 767px) { 
+    .header__button {
+        margin: 5.625vw 0 12.5vw 0;
+        line-height: 1.22222;
+        font-size: 5.625vw;
+    } 
+}

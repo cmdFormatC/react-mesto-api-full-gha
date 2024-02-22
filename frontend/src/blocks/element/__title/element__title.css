@@ -1,0 +1,18 @@
+.element__title {
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 224px;
+}
+
+@media screen and (max-width: 767px) { 
+    .element__title {
+        font-size: 7.5vw;
+        line-height: 9.0625vw;
+        max-width: 70vw;
+    } 
+}

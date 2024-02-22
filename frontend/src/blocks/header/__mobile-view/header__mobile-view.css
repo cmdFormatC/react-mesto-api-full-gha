@@ -1,0 +1,8 @@
+.header__mobile-view {
+   display: none;
+}
+@media screen and (max-width: 767px) { 
+    .header__mobile-view { 
+        display: block;
+    } 
+}

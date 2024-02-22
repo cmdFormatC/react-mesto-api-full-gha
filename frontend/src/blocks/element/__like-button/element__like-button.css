@@ -1,0 +1,23 @@
+.element__like-button {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: #ffff;
+    cursor: pointer;
+    background-image: url('../../../images/Vector.svg');
+    height: 19px;
+    width: 22px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.element__like-button:hover{
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 767px) { 
+    .element__like-button {
+        width: 6.875vw;
+        height: 5.9375vw;
+    } 
+}

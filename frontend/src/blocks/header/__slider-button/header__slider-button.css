@@ -1,0 +1,22 @@
+.header__slider-button {
+    /* background-image: url('../../../images/sliderButton.svg'); */
+    display: none;
+    cursor: pointer;
+    width: 7.5vw;
+    height: 6.5625vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: #0000;
+    background-size: 7.5vw  6.5625vw;
+}
+
+
+@media screen and (max-width: 767px) { 
+    .header__slider-button {
+        display: block;
+        margin: 10vw 9.375vw 0 0;
+    } 
+}

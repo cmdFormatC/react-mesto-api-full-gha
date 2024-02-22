@@ -1,0 +1,17 @@
+.popup__form {
+    display: flex;
+    flex-direction: column;
+    margin: 34px 36px 37px 36px;
+}
+@media screen and (max-width: 1279px) { 
+    .popup__form { 
+        margin: 2.65625vw 2.8125vw 2.890625vw 2.8125vw;
+    }
+}
+
+@media screen and (max-width: 767px) { 
+    .popup__form { 
+        margin: 7.8125vw 6.875vw 7.8125vw 6.875vw;
+    }
+}
+

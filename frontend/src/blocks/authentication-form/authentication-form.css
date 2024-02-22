@@ -1,0 +1,14 @@
+.authentication-form {
+    width: 358px;
+    display: flex;
+    flex-direction: column;
+    margin: 60px auto 0 auto;
+}
+
+@media screen and (max-width: 767px) { 
+    .authentication-form { 
+        width: 81.25vw;
+        margin: 12.5vw 9.375vw 0 9.375vw;
+        
+    } 
+}

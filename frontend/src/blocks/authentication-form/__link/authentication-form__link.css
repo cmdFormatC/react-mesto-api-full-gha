@@ -1,0 +1,19 @@
+.authentication-form__link {
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.authentication-form__link:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) { 
+    .authentication-form__link { 
+        font-size: 4.375vw;
+    } 
+}
