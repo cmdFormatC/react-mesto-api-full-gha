@@ -39,11 +39,12 @@ function App() {
         api.getInitialCards()
               .then((result) => {
                   const cardsArr = result.data.map((item) => {
+                    console.log(item)
                       return {
                           name: item["name"],
                           link: item["link"],
                           likes: item["likes"],
-                          ownerId: item["owner"]._id,
+                          ownerId: item["owner"],
                           _id: item["_id"]
                       }
                   });
@@ -60,7 +61,7 @@ function App() {
 
 
   function signOut(){
-    document.cookie = 'jwt=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    api.logOut();
     navigate("/sign-in", {replace: true});
   }
   
@@ -101,7 +102,7 @@ function App() {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api.togglelike(card._id, !isLiked)
     .then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((c) => c._id === card._id ? newCard.data : c));
     })
     .catch((error) => {
       console.error(error); 
@@ -124,7 +125,7 @@ function App() {
       about: inputValues.about
     })
     .then((res) =>{
-      setCurrentUser(res);
+      setCurrentUser(res.data);
       closeAllPopups();
     })
     .catch((error) => {
@@ -135,7 +136,7 @@ function App() {
   function handleUpdateAvatar(newAvatar) {
     api.updateAvatar(newAvatar)
     .then((res) =>{
-      setCurrentUser(res);
+      setCurrentUser(res.data);
       closeAllPopups();
     })
     .catch((error) => {

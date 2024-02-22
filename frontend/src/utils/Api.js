@@ -81,6 +81,18 @@ class Api {
         })
         .then(this._checkResponse)
     }
+    logOut() {
+        return fetch(`${this._baseUrl}/users/logout`, {
+            credentials: 'include',
+            headers: this._headers
+        })
+        .then((res) => {
+            if (res.ok) {
+                return
+            }
+            return Promise.reject(`Ошибка: ${res.status}`);
+        })
+    }
 }
 const api = new Api({
     baseUrl: 'https://api.vtelegram.nomoredomainswork.ru',

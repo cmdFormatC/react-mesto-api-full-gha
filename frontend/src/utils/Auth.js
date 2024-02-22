@@ -16,9 +16,6 @@ export const register = (password, email) => {
     }
     return response.json();
   })
-  .then((res) => {
-    return res;
-  })
 };
 export const authorize = (password, email) => {
   return fetch(`${BASE_URL}/signin`, {
@@ -29,8 +26,7 @@ export const authorize = (password, email) => {
     },
     body: JSON.stringify({password, email})
   })
-  .then((response => response))
-  .catch(err => console.log(err))
+  .catch(err => {return Promise.reject(`Ошибка: ${err.status}`)})
 };
 export const checkToken = () => {
   return fetch(`${BASE_URL}/users/me`, {
@@ -46,5 +42,4 @@ export const checkToken = () => {
     }
     return Promise.reject(`Ошибка: ${res.status}`);
   })
-  .then(data => data)
 }

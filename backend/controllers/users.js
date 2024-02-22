@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 const { handleErrorConstructor, handleDbErrors } = require('../utils/handleErrorTools');
 
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET = '6d64464cdced3e6c849a7f6825945f4b105e9f4ac0e0d7e1588ec4f0198f5a26' } = process.env;
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -56,6 +56,16 @@ const login = async (req, res, next) => {
       return next(err);
     });
 };
+
+const logOut = async (req, res, next) => {
+  try {
+    res.clearCookie('session_token');
+    res.send('Вы вышли из системы');
+  } catch (err) {
+    return next(err);
+  }
+};
+
 const createUser = async (req, res, next) => {
   const {
     name, about, avatar, email, password,
@@ -134,4 +144,5 @@ module.exports = {
   updateUserAvatar,
   login,
   getCurrentUser,
+  logOut,
 };

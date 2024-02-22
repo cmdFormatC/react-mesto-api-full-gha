@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { celebrate, Joi, Segments } = require('celebrate');
 
 const {
-  getUserById, getUsers, updateUserProfile, updateUserAvatar, getCurrentUser,
+  getUserById, getUsers, updateUserProfile, updateUserAvatar, getCurrentUser, logOut,
 } = require('../controllers/users');
 
 const updateUserProfileSchema = celebrate({
@@ -25,6 +25,7 @@ const getUserByIdSchema = celebrate({
 });
 
 router.get('/', getUsers);
+router.get('/logout', logOut);
 router.get('/me', getCurrentUser);
 router.get('/:userId', getUserByIdSchema, getUserById);
 router.patch('/me', updateUserProfileSchema, updateUserProfile);
