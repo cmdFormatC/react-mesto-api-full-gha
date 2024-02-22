@@ -75,9 +75,8 @@ class Api {
     }
 }
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
+    baseUrl: 'http://api.vtelegram.nomoredomainswork.ru',
     headers: {
-      authorization: '5bdde285-08ff-4c09-bc6a-dd3c3893d978',
       'Content-Type': 'application/json'
     }
 });

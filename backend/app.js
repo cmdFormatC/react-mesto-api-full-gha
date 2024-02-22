@@ -14,7 +14,7 @@ const {
 } = require('./controllers/users');
 const { handleError } = require('./middlewares/handleError');
 
-const { PORT = 3000, BASE_PATH } = process.env;
+const { PORT = 3000, BASE_PATH = 'http://localhost:' } = process.env;
 const app = express();
 
 app.use(cookieParser());
