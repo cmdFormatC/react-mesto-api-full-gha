@@ -35,6 +35,7 @@ class Api {
     addCard(inputValues) {
         return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify({
                 name: inputValues.name,

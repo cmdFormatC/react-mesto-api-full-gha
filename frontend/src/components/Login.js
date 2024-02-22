@@ -25,12 +25,10 @@ export default function Login(props) {
         return;
         }
         auth.authorize(formValue.password, formValue.email)
-        .then((data) => {
-        if (data.token){
-            props.onLogin(formValue.email);
-            setFormValue({email: '', password: ''});
-            navigate('/', {replace: true});
-        }
+        .then(() => {
+        props.onLogin(formValue.email);
+        setFormValue({email: '', password: ''});
+        navigate('/', {replace: true});
         })
         .catch((err) => {
             console.log(err)

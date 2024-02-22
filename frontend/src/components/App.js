@@ -161,16 +161,14 @@ function App() {
   }
 
   const handleTokenCheck = () => {
-    if (localStorage.getItem('jwt')){
-      const jwt = localStorage.getItem('jwt');
-      auth.checkToken(jwt).then((res) => {
-        if (res){
-          setUserEmail(res.data.email)
-          setLoggedIn(true);
-          navigate("/", {replace: true});
-        }
-      });
-    };
+    auth.checkToken().then((res) => {
+      console.log(res)
+      if (res.ok){
+        // setUserEmail(res.data.email)
+        setLoggedIn(true);
+        navigate("/", {replace: true});
+      }
+    });
   }
 
   return (

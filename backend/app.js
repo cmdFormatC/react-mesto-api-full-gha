@@ -18,7 +18,12 @@ const { handleError } = require('./middlewares/handleError');
 const { PORT = 3000, BASE_PATH = 'http://localhost:' } = process.env;
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://vtelegram.nomoredomainswork.ru',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(bodyParser.json());

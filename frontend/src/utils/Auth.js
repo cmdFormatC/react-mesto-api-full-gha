@@ -27,21 +27,17 @@ export const authorize = (password, email) => {
     },
     body: JSON.stringify({password, email})
   })
-  .then((response => response.json()))
-  .then((data) => {
-    if (data.token){
-      localStorage.setItem('jwt', data.token);
-      return data;
-    }
-  })
+  .then((response => {
+    console.log(response)
+    return response.json()}))
   .catch(err => console.log(err))
 };
-export const checkToken = (token) => {
+export const checkToken = () => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
+    credentials: 'include',
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     }
   })
   .then(res => res.json())
