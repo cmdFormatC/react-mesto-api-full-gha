@@ -75,7 +75,7 @@ class Api {
     }
 }
 const api = new Api({
-    baseUrl: 'http://api.vtelegram.nomoredomainswork.ru',
+    baseUrl: 'https://api.vtelegram.nomoredomainswork.ru',
     headers: {
       'Content-Type': 'application/json'
     }
