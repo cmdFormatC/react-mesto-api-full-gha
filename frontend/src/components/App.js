@@ -147,12 +147,11 @@ function App() {
   function handleAddPlaceSubmit(newCard) {
     api.addCard(newCard)
     .then((res) =>{
-      console.log(res)
       setCards([{
         name: res.data["name"],
         link: res.data["link"],
         likes: res.data["likes"],
-        ownerId: res.data["owner"]._id,
+        ownerId: res.data["owner"],
         _id: res.data["_id"]
     }, ...cards]);
     closeAllPopups();
